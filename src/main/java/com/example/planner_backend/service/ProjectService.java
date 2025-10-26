@@ -42,9 +42,8 @@ public class ProjectService {
         String oldPlan = existingProject.getStrategyPlan();
         String newPlan = projectDetails.getStrategyPlan();
 
-        if (!Objects.equals(oldPlan, newPlan)) {
+        if (newPlan != null && !Objects.equals(oldPlan, newPlan)) {
             if (oldPlan != null && !oldPlan.trim().isEmpty()) {
-                // Assuming your constructor includes a change summary
                 ProjectStrategyVersion version = new ProjectStrategyVersion(
                         existingProject,
                         oldPlan
